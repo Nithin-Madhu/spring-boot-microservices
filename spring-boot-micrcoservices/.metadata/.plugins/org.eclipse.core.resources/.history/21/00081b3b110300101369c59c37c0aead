@@ -1,0 +1,22 @@
+version: "3.8"
+name: "spring-boot-microservices"
+
+services:
+  catalog-db:
+    image: postgres:17.4
+    container_name: catalog-db
+    environment:
+      - POSTGRES_USER= postgres
+      - POSTGRES_PASSWORD= postgres
+      - POSTGRES_DB= postgres
+    ports:
+      - "15432:5432"  # Fixed: Added space and quotes
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    deploy:
+      resources:
+        limits:
+          memory: "500m"

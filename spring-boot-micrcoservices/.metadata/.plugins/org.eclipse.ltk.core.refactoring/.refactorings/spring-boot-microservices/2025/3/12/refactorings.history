@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;spring-boot-microservices/deployment/docker-compose/infra.yml&apos; to &apos;infra.yaml&apos;" description="Rename resource &apos;infra.yml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="deployment/docker-compose/infra.yml" name="infra.yaml" stamp="1742199251709" updateReferences="true"/>
+</session>
