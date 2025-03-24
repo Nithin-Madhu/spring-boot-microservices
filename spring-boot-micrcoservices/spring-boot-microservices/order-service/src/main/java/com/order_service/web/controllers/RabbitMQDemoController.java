@@ -1,7 +1,5 @@
 package com.order_service.web.controllers;
 
-import java.io.Serializable;
-
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

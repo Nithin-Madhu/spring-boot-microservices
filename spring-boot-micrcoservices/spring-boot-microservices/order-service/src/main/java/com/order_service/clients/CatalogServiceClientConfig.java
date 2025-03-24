@@ -12,7 +12,8 @@ import com.order_service.ApplicationProperties;
 
 @Configuration
 class CatalogServiceClientConfig {
-    @Bean
+    @SuppressWarnings({ "removal", "deprecation" })
+	@Bean
     RestClient restClient(RestClient.Builder builder, ApplicationProperties properties) {
         return builder.baseUrl(properties.catalogServiceUrl())
                 .requestFactory(ClientHttpRequestFactories.get(ClientHttpRequestFactorySettings.DEFAULTS

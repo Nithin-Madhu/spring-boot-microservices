@@ -1,9 +1,10 @@
 package com.order_service.domain.models;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public record OrderDTO(
         String orderNumber,

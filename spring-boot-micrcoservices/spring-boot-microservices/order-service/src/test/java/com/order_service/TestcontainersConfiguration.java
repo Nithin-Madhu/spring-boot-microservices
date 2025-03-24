@@ -9,7 +9,7 @@ import org.testcontainers.utility.DockerImageName;
 
 @TestConfiguration(proxyBeanMethods = false)
 class TestcontainersConfiguration {
-
+    
 	@Bean
 	@ServiceConnection
 	PostgreSQLContainer<?> postgresContainer() {
@@ -21,5 +21,6 @@ class TestcontainersConfiguration {
 	RabbitMQContainer rabbitContainer() {
 		return new RabbitMQContainer(DockerImageName.parse("rabbitmq:4.0.4-management"));
 	}
+
 
 }

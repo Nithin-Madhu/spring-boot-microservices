@@ -27,18 +27,19 @@ class ProductController {
 	}
 
 
-	 @GetMapping
-	    PagedResult<Product> getProducts(@RequestParam(name = "page", defaultValue = "1") int pageNo) {
-	        log.info("Fetching products for page: {}", pageNo);
-	        return productService.getProducts(pageNo);
-	    }
+    @GetMapping
+    PagedResult<Product> getProducts(@RequestParam(name = "page", defaultValue = "1") int pageNo) {
+        log.info("Fetching products for page: {}", pageNo);
+        return productService.getProducts(pageNo);
+    }
 
-	    @GetMapping("/{code}")
-	    ResponseEntity<Product> getProductByCode(@PathVariable String code) {
-	        log.info("Fetching product for code: {}", code);
-	        return productService
-	                .getProductByCode(code)
-	                .map(ResponseEntity::ok)
-	                .orElseThrow(() -> ProductNotFoundException.forCode(code));
-	    }
+    @GetMapping("/{code}")
+    ResponseEntity<Product> getProductByCode(@PathVariable String code) {
+        log.info("Fetching product for code: {}", code);
+        return productService
+                .getProductByCode(code)
+                .map(ResponseEntity::ok)
+                .orElseThrow(() -> ProductNotFoundException.forCode(code));
+    }
+    
 }
