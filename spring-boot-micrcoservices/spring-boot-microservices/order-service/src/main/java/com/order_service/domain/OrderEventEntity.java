@@ -95,4 +95,12 @@ class OrderEventEntity {
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
+
+	@Override
+	public String toString() {
+		return "OrderEventEntity [id=" + id + ", orderNumber=" + orderNumber + ", eventId=" + eventId + ", eventType="
+				+ eventType + ", payload=" + payload + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + "]";
+	}
+    
+    
 }

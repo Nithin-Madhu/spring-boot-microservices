@@ -10,29 +10,27 @@ import com.order_service.domain.models.OrderStatus;
 import com.order_service.domain.models.OrderSummary;
 
 interface OrderRepository extends JpaRepository<OrderEntity, Long> {
-    List<OrderEntity> findByStatus(OrderStatus status);
+	List<OrderEntity> findByStatus(OrderStatus status);
 
-    Optional<OrderEntity> findByOrderNumber(String orderNumber);
+	Optional<OrderEntity> findByOrderNumber(String orderNumber);
 
-    default void updateOrderStatus(String orderNumber, OrderStatus status) {
-        OrderEntity order = this.findByOrderNumber(orderNumber).orElseThrow();
-        order.setStatus(status);
-        this.save(order);
-    }
+	default void updateOrderStatus(String orderNumber, OrderStatus status) {
+		OrderEntity order = this.findByOrderNumber(orderNumber).orElseThrow();
+		order.setStatus(status);
+		this.save(order);
+	}
 
-    @Query(
-            """
-        select new com.order_service.domain.models.OrderSummary(o.orderNumber, o.status)
-        from OrderEntity o
-        where o.userName = :userName
-        """)
-    List<OrderSummary> findByUserName(String userName);
+	@Query("""
+			select new com.order_service.domain.models.OrderSummary(o.orderNumber, o.status)
+			from OrderEntity o
+			where o.userName = :userName
+			""")
+	List<OrderSummary> findByUserName(String userName);
 
-    @Query(
-            """
-        select distinct o
-        from OrderEntity o left join fetch o.items
-        where o.userName = :userName and o.orderNumber = :orderNumber
-        """)
-    Optional<OrderEntity> findByUserNameAndOrderNumber(String userName, String orderNumber);
+	@Query("""
+			select distinct o
+			from OrderEntity o left join fetch o.items
+			where o.userName = :userName and o.orderNumber = :orderNumber
+			""")
+	Optional<OrderEntity> findByUserNameAndOrderNumber(String userName, String orderNumber);
 }

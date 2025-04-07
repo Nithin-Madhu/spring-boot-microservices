@@ -79,6 +79,7 @@ public class OrderEventService {
         List<OrderEventEntity> events = orderEventRepository.findAll(sort);
         log.info("Found {} Order Events to be published", events.size());
         for (OrderEventEntity event : events) {
+            log.info("Event is {}", event);
             this.publishEvent(event);
             orderEventRepository.delete(event);
         }
