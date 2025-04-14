@@ -38,7 +38,7 @@ spring:
           filters:
             - RewritePath=/catalog/?(?<segment>.*), /${segment}
         - id: orders-service
-          uri: ${ORDER_SERVICE_URL:http://orders-service:8082}
+          uri: ${ORDER_SERVICE_URL:http://order-service:8082}
           predicates:
             - Path=/orders/**
           filters:
