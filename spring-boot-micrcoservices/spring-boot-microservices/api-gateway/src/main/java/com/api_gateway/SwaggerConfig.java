@@ -1,4 +1,4 @@
-//package com.api_gateway.api_gateway;
+//package com.api_gateway;
 //
 //import static org.springdoc.core.utils.Constants.DEFAULT_API_DOCS_URL;
 //
