@@ -95,7 +95,6 @@ services:
     environment:
       - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=admin1234
-      - KC_HOSTNAME_URL=http://localhost:9191
     ports:
       - "9191:9191"
     deploy:
