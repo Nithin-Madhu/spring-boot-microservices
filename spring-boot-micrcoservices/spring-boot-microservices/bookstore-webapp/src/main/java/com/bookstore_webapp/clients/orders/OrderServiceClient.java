@@ -9,13 +9,13 @@ import org.springframework.web.service.annotation.GetExchange;
 import org.springframework.web.service.annotation.PostExchange;
 
 public interface OrderServiceClient {
-	@PostExchange("/orders/api/orders")
-	OrderConfirmationDTO createOrder(@RequestBody CreateOrderRequest orderRequest);
+    @PostExchange("/orders/api/orders")
+    OrderConfirmationDTO createOrder(
+            @RequestHeader Map<String, ?> headers, @RequestBody CreateOrderRequest orderRequest);
 
-	@GetExchange("/orders/api/orders")
-	List<OrderSummary> getOrders();
+    @GetExchange("/orders/api/orders")
+    List<OrderSummary> getOrders(@RequestHeader Map<String, ?> headers);
 
-	@GetExchange("/orders/api/orders/{orderNumber}")
-	OrderDTO getOrder(@PathVariable String orderNumber);
-
+    @GetExchange("/orders/api/orders/{orderNumber}")
+    OrderDTO getOrder(@RequestHeader Map<String, ?> headers, @PathVariable String orderNumber);
 }
