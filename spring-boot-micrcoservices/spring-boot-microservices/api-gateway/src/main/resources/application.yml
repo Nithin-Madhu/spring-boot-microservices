@@ -60,8 +60,9 @@ spring:
 springdoc:
   swagger-ui:
     use-root-path: true
+    disable-swagger-default-url: true
     urls:
       - name: catalog
-        url: /v3/api-docs/catalog
+        url: http://localhost:8081/v3/api-docs
       - name: orders
-        url: /v3/api-docs/orders
+        url: http://localhost:8082/v3/api-docs
